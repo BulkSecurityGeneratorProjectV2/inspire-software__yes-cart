@@ -33,6 +33,7 @@ import org.yes.cart.web.support.seo.SitemapXmlService;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -79,7 +80,7 @@ public class SitemapXmlServiceImpl implements SitemapXmlService {
 
         try {
 
-            final File sitemap = File.createTempFile("sitemap-" + shopCode, ".tmp");
+            final File sitemap = Files.createTempFile("sitemap-" + shopCode, ".tmp").toFile();
 
             final OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(sitemap), StandardCharsets.UTF_8);
 
